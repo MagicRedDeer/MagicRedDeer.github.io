@@ -26,9 +26,9 @@ Implemented a scene bundling system to automate and optimize render submission p
 
 Developed a tool for efficient extraction of previews and caches from multiple shot animation scenes.
 
-## Integration of FingerPrint Data into Attendance Management
+## Integration Fingerprint data for Attendance Management
 
-Updated the internal
+Integration of the customized in house attendance data with fingerprint information. Implementation of company policies.
 
 ## Digital Asset Management
 
@@ -40,8 +40,7 @@ Built a pipeline team at ICE Animations. Screening and Hiring using technical in
 
 ## Spider Web Simulation
 
-Developed tooling for simulation of Spider Webs based on dynamic curves
-in Maya.
+Developed tooling for simulation of Spider Webs based on dynamic curves in Maya.
 
 ## Crowd Animation System
 
