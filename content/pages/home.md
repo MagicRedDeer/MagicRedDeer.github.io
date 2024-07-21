@@ -11,7 +11,7 @@ I am Talha Ahmed, a seasoned Developer, Technical Artist, and Technology Enthusi
 ---
 
 - [Skills](pages/skills.html)
-- [Experience](pages/experience.html)
+- [Work History](pages/work-history.html)
 - [Education](pages/education.html)
 - [Projects](pages/projects.html)
 
