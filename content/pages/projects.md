@@ -2,6 +2,10 @@ Title: Projects
 
 Listed here are some of the projects that I contributed to, listed in reverse chronological order. I will be adding more information with time.
 
+## Intervuo
+
+Implementation of a platform for conducting interviews using speech generation using ElevenLabs API, OpenAI API and other tools.
+
 ## Review and Cache Publishing
 
 Negotiation, Implementation of additional features of the in-house Review and Cache Publishing Tool. Complete refactor and redesign to enable separation of concern.
