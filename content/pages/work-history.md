@@ -1,5 +1,16 @@
 Title: Work History
 
+## Blink Industries, London
+
+**Senior Pipeline Developer (Contract – Remote)**
+_Aug '24 – Oct '24_
+
+- Development role in a Hybrid 2D/3D Maya/Harmony/Adobe pipeline.
+- Developed TD tools in Maya for involving asset materials
+- Edit generation for Adobe Premiere using XMEML
+- 2D Sequence Layout with Adobe Aftereffects
+- 3D object integration in ToonBoom Harmony
+
 ## UNTOLD STUDIOS, London
 
 **Pipeline Developer (Contract – Remote)**

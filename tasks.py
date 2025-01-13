@@ -156,6 +156,11 @@ def gh_pages(c):
         "{deploy_path} -p".format(**CONFIG)
     )
 
+# add a function to invoke
+def publish_the_web(c):
+    publish(c)
+    gh_pages(c)
+
 
 def pelican_run(cmd):
     cmd += " " + program.core.remainder  # allows to pass-through args to pelican
