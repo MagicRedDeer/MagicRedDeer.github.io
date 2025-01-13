@@ -5,9 +5,9 @@ Title: Skills
 - **Programming**: Python, C/C++, C#, JS, Lua, Bash, PowerShell, and others.
 - **Software Development**: Agile Development, Requirements Acquisition, Testing, Documentation.
 - **Production Tracking**: Shotgun, Ftrack, Tactic, and others.
-- **CGI**: Maya, Nuke, Deadline, Houdini, Adobe, and others.
+- **CGI**: Maya, Nuke, Deadline, Houdini, Adobe, Harmony, and others.
 - **Web Development**: Wordpress, Django, Selenium.
-- **Machine Learning/AI**: Tensorflow, Keras, OpenCV.
+- **Machine Learning/AI**: LLMs, Ollama, LlamaIndex, Generative AI, Agents, TensorFlow.
 - **Other**: Qt, Git, Rez, OpenGL, Matlab.
 
 ## General Skills
