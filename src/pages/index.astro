@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<BaseLayout wide>
+  <section class="hero">
+    <p class="eyebrow">Pipeline &amp; Automation Engineer · Technical Artist</p>
+    <h1>Talha Ahmed</h1>
+    <p class="lead">
+      I turn DCC-heavy, messy asset workflows into robust, open-standard automation. 16+ years
+      building production software, tools, and pipelines for animation, VFX, and games —
+      lately deep in <strong>OpenUSD</strong>, <strong>MaterialX / OpenPBR</strong>, and
+      large-scale, cloud-backed automation, increasingly built with AI/LLM tooling.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/projects">View projects</a>
+      <a class="btn" href="/resume">Résumé</a>
+      <a class="btn" href="https://github.com/MagicRedDeer">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/talha-ahmed-lazyleopard/">LinkedIn</a>
+    </div>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-title"><h2 class="mt-0">Selected projects</h2><a href="/projects">All projects →</a></div>
+    <div class="card-grid">
+      {projects.map((p) => (
+        <a class="card" href={`/projects/${p.id}/`}>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+          <div class="tags">{p.data.tech.slice(0, 5).map((t) => <span class="tag">{t}</span>)}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><h2>Writing</h2><a href="/blog">All writing →</a></div>
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li>
+          <a class="post-title" href={`/blog/${p.id}/`}>{p.data.title}</a>
+          <span class="post-meta"> · {fmt(p.data.date)}</span>
+          <p>{p.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

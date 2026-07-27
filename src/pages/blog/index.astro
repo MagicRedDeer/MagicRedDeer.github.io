@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<BaseLayout title="Writing — Talha Ahmed" description="Engineering notes on pipelines, tools, USD, and automation.">
+  <h1>Writing</h1>
+  <p class="lead">Engineering notes from the pipeline: concrete problems, why the obvious fix didn't work, and the solution that did.</p>
+  <ul class="post-list">
+    {posts.map((p) => (
+      <li>
+        <a class="post-title" href={`/blog/${p.id}/`}>{p.data.title}</a>
+        <span class="post-meta"> · {fmt(p.data.date)}</span>
+        <p>{p.data.description}</p>
+        <div class="tags" style="margin-top:0.5rem">{p.data.tags.slice(0, 5).map((t) => <span class="tag">{t}</span>)}</div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

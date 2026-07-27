@@ -1,0 +1,17 @@
+---
+const year = 2026;
+const links = [
+  { label: 'GitHub', url: 'https://github.com/MagicRedDeer' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/talha-ahmed-lazyleopard/' },
+  { label: 'Email', url: 'mailto:talha.ahmed@gmail.com' },
+  { label: 'RSS', url: '/rss.xml' },
+];
+---
+<footer class="site-footer">
+  <div class="bar">
+    <div class="links">
+      {links.map((l) => <a href={l.url}>{l.label}</a>)}
+    </div>
+    <span class="copy">© {year} Talha Ahmed · built with Astro</span>
+  </div>
+</footer>

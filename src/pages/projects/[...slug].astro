@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+---
+<BaseLayout title={`${d.title} — Talha Ahmed`} description={d.description}>
+  <article class="prose">
+    <div class="article-header">
+      <p class="eyebrow mono">{d.role ?? 'Project'}{d.period ? ` · ${d.period}` : ''}</p>
+      <h1>{d.title}</h1>
+      <p class="lead">{d.description}</p>
+      {d.tech.length > 0 && <div class="tags" style="margin:0.75rem 0 0.5rem">{d.tech.map((t) => <span class="tag">{t}</span>)}</div>}
+      {d.links.length > 0 && (
+        <div class="cta-row" style="margin-top:0.75rem">
+          {d.links.map((l) => <a class="btn" href={l.url}>{l.label} →</a>)}
+        </div>
+      )}
+    </div>
+    <hr />
+    <Content />
+  </article>
+  <hr />
+  <p><a href="/projects">← All projects</a></p>
+</BaseLayout>

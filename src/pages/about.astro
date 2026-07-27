@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills: [string, string][] = [
+  ['Languages', 'Python (primary), C/C++, C#, JavaScript, Lua, Bash, PowerShell, MEL/VEX'],
+  ['DCC & CG', 'Houdini (Solaris, HDA/OTL, hython, PDG/TOP), Maya, Nuke, Unreal (Interchange), Blender, Arnold, RenderMan, Deadline'],
+  ['Interchange & imaging', 'OpenUSD, MaterialX, OpenPBR, USDZ; OpenImageIO; color management, deep compositing, stereoscopy'],
+  ['Cloud & tooling', 'AWS (S3, EC2, Step Functions), FastAPI, CI/CD, pytest, ruff, uv, Rez, Qt/PySide2, Perforce, Git, ShotGrid/ftrack'],
+  ['ML / AI', 'LLMs & agents (Claude Code), Stable Diffusion, TensorFlow, PyTorch, Hugging Face'],
+];
+---
+<BaseLayout title="About — Talha Ahmed" description="16+ years building tools, pipelines, and automation for animation, VFX, and games.">
+  <h1>About</h1>
+  <p class="lead">
+    I'm a pipeline &amp; automation engineer and technical artist based in Karachi, working remotely
+    and async across timezones. For 16+ years I've built the software that keeps animation, VFX, and
+    games productions moving — tools, pipelines, and large-scale automation.
+  </p>
+
+  <p>
+    My recent work is a core-engineer role at <strong>Epic Games (Quixel)</strong>, building a
+    production 3D-asset conversion and automation system on open interchange standards —
+    <strong>OpenUSD</strong> and <strong>MaterialX / OpenPBR</strong> — with a Houdini processing
+    engine driven from a clean Python API, a pure-Python backend, an independent automated QA gate,
+    and corpus-scale batch tooling. Before that: pipeline and TD roles at Blink Industries, Untold
+    Studios, One Animation/Moonbug, and Passion Pictures, and a decade at ICE Animations and Post
+    Amazers writing tools, plugins, and effects in Python, C++, RenderMan, and MEL.
+  </p>
+
+  <p>
+    I like the unglamorous parts of a pipeline — the read-the-asset-in stage, the QA gate, the batch
+    that has to run unattended over tens of thousands of assets and report numbers you can defend.
+    That's what the <a href="/blog">writing</a> is mostly about.
+  </p>
+
+  <h2>What I work with</h2>
+  <dl class="skills-grid">
+    {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+  </dl>
+
+  <h2>Experience</h2>
+  <ul>
+    <li><strong>Epic Games — Quixel</strong> · Pipeline &amp; Automation Engineer (core developer &amp; architect) · Remote · Apr 2025 – Jul 2026</li>
+    <li><strong>Blink Industries</strong> · Pipeline Developer · London (Remote) · Aug – Oct 2024</li>
+    <li><strong>Untold Studios</strong> · Pipeline Developer · London (Remote) · Oct 2023 – May 2024</li>
+    <li><strong>One Animation / Moonbug</strong> · Sr Pipeline TD · Singapore (Remote) · Sep 2022 – Sep 2023</li>
+    <li><strong>Passion Pictures</strong> · Pipeline Developer · London (Remote) · Mar – Sep 2022</li>
+    <li><strong>Nebula Pipeline</strong> · Studio Developer / Consultant · Karachi · 2019 – 2021</li>
+    <li><strong>ICE Animations</strong> · Pipeline Supervisor / CG Researcher · Karachi · 2011 – 2019</li>
+    <li><strong>Post Amazers</strong> · Technical Artist / Programmer · Karachi · 2004 – 2008</li>
+  </ul>
+  <p class="text-soft">Selected screen credits: <em>Mansour</em> (TV series, 2012), <em>Son of the Mask</em> (2005).</p>
+
+  <h2>Education &amp; certifications</h2>
+  <ul>
+    <li><strong>B.S. Computer Systems Engineering</strong> — GIK Institute, Pakistan (1999–2003)</li>
+    <li><strong>EM CIMET</strong> (Erasmus Mundus) color-imaging &amp; multimedia coursework — U. of Granada &amp; Gjøvik UC (2008–2010)</li>
+    <li><strong>P.G.D. Business Administration</strong> — IBA Karachi (2005–2007)</li>
+    <li>Deep Learning Specialization — DeepLearning.ai / Coursera (2019) · AI &amp; GPT Applications — Encode.club (2024)</li>
+  </ul>
+
+  <hr />
+  <p>
+    Looking for pipeline / tools / automation / software roles. The fastest way to reach me is
+    <a href="mailto:talha.ahmed@gmail.com">email</a> or
+    <a href="https://www.linkedin.com/in/talha-ahmed-lazyleopard/">LinkedIn</a>.
+  </p>
+</BaseLayout>

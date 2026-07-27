@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Projects — Talha Ahmed" description="Pipeline, tools, and automation projects.">
+  <h1>Projects</h1>
+  <p class="lead">Selected pipeline, tools, and automation work. Some detail is generalized where it sits under NDA.</p>
+  <div class="card-grid" style="margin-top:1.5rem">
+    {projects.map((p) => (
+      <a class="card" href={`/projects/${p.id}/`}>
+        <h3>{p.data.title}</h3>
+        {p.data.period && <p class="post-meta">{p.data.role ? p.data.role + ' · ' : ''}{p.data.period}</p>}
+        <p>{p.data.description}</p>
+        <div class="tags">{p.data.tech.slice(0, 6).map((t) => <span class="tag">{t}</span>)}</div>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
