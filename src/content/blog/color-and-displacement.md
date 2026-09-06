@@ -8,10 +8,11 @@ seriesOrder: 3
 ---
 
 Some bugs announce themselves with a crash. The worst ones just make the picture a little wrong,
-consistently, in a way nobody can quite point at. On a texture pipeline converting a large
-library of scan assets to [OpenUSD](https://openusd.org) with
-[MaterialX](https://materialx.org) materials, two families of that second kind of bug cost me
-more time than anything with a stack trace: **colour space** and **displacement range**.
+consistently, in a way nobody can quite point at. On the Megascans → USD pipeline — 20,637 scan
+assets onto [OpenUSD](https://openusd.org) with [MaterialX](https://materialx.org) /
+[OpenPBR](https://academysoftwarefoundation.github.io/OpenPBR/) materials — two families of that
+second kind of bug cost me more time than anything with a stack trace: **colour space** and
+**displacement range**.
 
 Both had the same root cause and, eventually, the same shape of fix: stop trusting the metadata,
 and derive the truth in exactly one place.

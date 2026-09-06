@@ -17,8 +17,8 @@ npm run preview   # preview the production build locally
 - **Projects** — `src/content/projects/*.md` (frontmatter: title, description, order, featured, role, period, tech[], links[])
 - **Writing** — `src/content/blog/*.md` (frontmatter: title, description, date, tags[], draft, series, seriesOrder)
   - Set `draft: true` to keep a post out of the production build.
-- **Résumé PDFs** — `public/resume/` (`Talha_Ahmed_Resume.pdf`, `Talha_Ahmed_Resume_1page.pdf`).
-  Regenerate from `../resume/*.typ` and copy them here.
+- **Résumé PDFs** — `public/resume/` (`Talha_Ahmed_Resume.pdf`, `Talha_Ahmed_Resume_SoftwareEngineer.pdf`).
+  Regenerate from `../resume/resume-cg-pipeline.typ` and `../resume/resume-swe.typ` and copy them here.
 
 ## Deploying to GitHub Pages
 
@@ -32,7 +32,8 @@ See `DEPLOY.md` in the parent folder for the exact first-push commands.
 
 ## NDA note
 
-The five articles in the "Engineering an OpenUSD asset pipeline" series are written in a
-**generalized** posture: they describe the engineering (open standards, the problem, the fix) and
-keep the unreleased product/exact figures out. Do not add the specific deliverable name or hard
-counts until Epic Games has publicly announced the relevant assets.
+The five articles in the "Engineering an OpenUSD asset pipeline" series describe the **Epic Games
+(Quixel) Megascans → OpenUSD** work in full. **NDA cleared 2026-09-06**: product name and exact
+counts (20,637 assets, ~92%, six material types, ~110 QA rules, backlog 338 → 0, 78.7% → 98.9%)
+are fine to publish. Do not soften them back into generalized posture unless the user records a
+new NDA decision in `evidence-bank.md`.

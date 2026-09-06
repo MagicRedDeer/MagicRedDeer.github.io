@@ -7,7 +7,7 @@ series: "Engineering an OpenUSD asset pipeline"
 seriesOrder: 2
 ---
 
-At some point on the asset-conversion pipeline I'd been building, we needed a second
+At some point on Epic's Megascans → USD pipeline I'd been building, we needed a second
 implementation. The first one drove a DCC application ([Houdini](https://www.sidefx.com)) to do
 the heavy lifting — great for artist-editable material networks and a validated production path,
 but a heavy dependency to carry everywhere. So I wrote a **second backend in pure Python**, with a
@@ -56,6 +56,12 @@ Three properties made the gate trustworthy:
 Findings carry a severity (error / warn / info); the ship gate is simply "no errors." A separate
 pass / review / fail verdict routes the genuinely ambiguous cases — usually pre-existing
 source-data problems — to a person instead of pretending the machine can decide.
+
+The gate that grew out of this ended up at **~110 rules across seven layers** (geometry,
+materials, USD structure, textures, plus crash-resilient visual QA in Maya) — and it's what let
+the pure-Python backend converge, drive by drive, on **structural parity** with the Houdini path:
+as QA's rule list grew, "same output" stopped being a hope and became a requirement that held by
+construction.
 
 ## Parity that holds by construction, not by luck
 

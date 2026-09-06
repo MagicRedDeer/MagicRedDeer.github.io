@@ -6,7 +6,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 ---
 <BaseLayout title="Projects — Talha Ahmed" description="Pipeline, tools, and automation projects.">
   <h1>Projects</h1>
-  <p class="lead">Selected pipeline, tools, and automation work. Some detail is generalized where it sits under NDA.</p>
+  <p class="lead">Selected pipeline, tools, and automation work.</p>
   <div class="card-grid" style="margin-top:1.5rem">
     {projects.map((p) => (
       <a class="card" href={`/projects/${p.id}/`}>

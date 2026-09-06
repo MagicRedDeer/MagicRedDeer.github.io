@@ -8,9 +8,10 @@ seriesOrder: 1
 ---
 
 Every asset pipeline has a stage so ordinary nobody thinks about it: *read the geometry in*.
-On a project converting a large library of 3D scan assets into [OpenUSD](https://openusd.org),
-that unglamorous first step turned into one of the more interesting problems I solved — because
-the standard tool for it was quietly throwing away information the rest of the pipeline needed.
+On the project converting Epic's Megascans library — 20,637 scan assets — into
+[OpenUSD](https://openusd.org), that unglamorous first step turned into one of the more
+interesting problems I solved — because the standard tool for it was quietly throwing away
+information the rest of the pipeline needed.
 
 This is the story of why, and of the small reader I wrote to get it back.
 

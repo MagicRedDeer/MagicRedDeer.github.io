@@ -8,9 +8,9 @@ seriesOrder: 5
 ---
 
 The first thing an asset converter has to do is the thing nobody puts on a slide: *read the asset
-in*. On a decade-old library of tens of thousands of assets, that unglamorous step turned out to
-be most of the reliability battle — because the assets lived in different places, and their
-metadata was broken in a hundred small ways.
+in*. On Epic's Megascans library — 20,637 decade-old (and older) scan assets across six material
+types — that unglamorous step turned out to be most of the reliability battle — because the
+assets lived in different places, and their metadata was broken in a hundred small ways.
 
 Two patterns carried it: a **provider abstraction** for *where* an asset lives, and a **metadata
 auto-repair registry** for *how* its description is broken.

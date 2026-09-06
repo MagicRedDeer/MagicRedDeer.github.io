@@ -1,6 +1,6 @@
 ---
-title: "Converting 10,000 messy assets without lying about it"
-description: "A converter that works on a clean test asset is a demo. Running unattended over ten-thousand-plus real, decade-old assets is a different program — mostly about the mess you didn't design for, and reporting coverage you can defend."
+title: "Converting 20,637 messy assets without lying about it"
+description: "A converter that works on a clean test asset is a demo. Running unattended over 20,637 real, decade-old assets is a different program — mostly about the mess you didn't design for, and reporting coverage you can defend."
 date: 2026-07-14
 tags: ["automation", "scale", "robustness", "OpenUSD", "ops"]
 series: "Engineering an OpenUSD asset pipeline"
@@ -8,8 +8,8 @@ seriesOrder: 4
 ---
 
 A converter that works on a clean test asset is a demo. A converter that runs unattended across a
-library of ten-thousand-plus real, decade-old assets is a different kind of program — and the
-gap between the two is almost entirely about the assets you didn't design for.
+library of 20,637 real, decade-old (and older) assets — Epic's Megascans — is a different kind of
+program, and the gap between the two is almost entirely about the assets you didn't design for.
 
 This is about that gap: the mess that scale surfaces, and the discipline of reporting coverage
 numbers you can actually stand behind.
@@ -82,9 +82,8 @@ asset tracker we queried returns a **404 when it's rate-limiting** — and a nai
 of the library as missing. The data was fine; the *measurement* was wrong.
 
 The fix was a **rate-limit-aware, multi-pass gather**: treat a 404-under-load as "ask again
-later," not "gone," and re-sweep the gaps. On one run that took apparent coverage from roughly
-four-fifths of the library to nearly complete — not by converting anything new, but by
-**measuring honestly**.
+later," not "gone," and re-sweep the gaps. On one run that took apparent coverage from
+**78.7% to 98.9%** — not by converting anything new, but by **measuring honestly**.
 
 That bug crystallised the theme of the whole exercise. At scale, a wrong *number* is as dangerous
 as a wrong *asset* — and often harder to notice.
@@ -96,6 +95,10 @@ was in the bucket it was in? Converted, or rejected-with-a-reason, or genuinely 
 never "failed" when it was really "excluded by design." When the pipeline bounds its own coverage,
 it says so out loud, because **silent truncation reads as "we covered everything" when you
 didn't.**
+
+The numbers that shipped with it: **20,637 assets converted to OpenUSD with MaterialX/OpenPBR
+materials — about 92% of the actionable library, across six material types — and a conversion
+backlog drained from 338 to 0.**
 
 ## What it demonstrates
 
