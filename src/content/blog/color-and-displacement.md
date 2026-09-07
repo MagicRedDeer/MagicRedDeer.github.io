@@ -2,7 +2,7 @@
 title: "Getting colour and displacement right"
 description: "The worst bugs don't crash — they just make the picture a little wrong, consistently. Two families of that bug on a texture pipeline, and the same shape of fix: stop trusting metadata, derive the truth in one place."
 date: 2026-06-30
-tags: ["OpenUSD", "MaterialX", "OpenPBR", "OpenImageIO", "color"]
+tags: ["OpenUSD", "MaterialX", "OpenPBR", "OpenColorIO", "color"]
 series: "Engineering an OpenUSD asset pipeline"
 seriesOrder: 3
 ---
@@ -24,7 +24,9 @@ colour, and a couple of others) are authored in **sRGB**; **data maps** — norm
 ambient occlusion, metalness, opacity, displacement — are **linear**; and floating-point EXRs are
 linear regardless. Get one map's interpretation wrong and nothing errors — the asset just renders
 subtly off, and you spend an afternoon squinting at a roughness map wondering why the highlights
-are wrong.
+are wrong. The whole thing ran on the project's **OpenColorIO** configuration — the directory of
+transform rules, loaded once — so "which colour space is this map in?" always had a single
+answerable source.
 
 The failure mode wasn't *knowing* the rule; it was **applying it in two places**. With two
 conversion backends (see [the previous article](/blog/dual-backends-qa-arbiter/)), each reading
@@ -51,8 +53,8 @@ In practice that metadata was unreliable — and a displacement that's silently 
 factor is exactly the kind of error that survives all the way to a confused artist.
 
 So when the source file is actually on disk, the pipeline stops trusting the sidecar and
-**measures the real thing** with OpenImageIO: read the red channel's actual min and max, and
-recompute scale and bias from the pixels:
+**measures the real thing** — reads the red channel's actual min and max from the file, and
+recomputes scale and bias from the pixels:
 
 ```python
 minimum = (red.min() - bias) * scale

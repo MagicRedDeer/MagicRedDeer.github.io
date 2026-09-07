@@ -97,8 +97,8 @@ it says so out loud, because **silent truncation reads as "we covered everything
 didn't.**
 
 The numbers that shipped with it: **20,637 assets converted to OpenUSD with MaterialX/OpenPBR
-materials — about 92% of the actionable library, across six material types — and a conversion
-backlog drained from 338 to 0.**
+materials — about 92% of the actionable library, across six material types — with the corpus
+classified into 30+ asset classes so each conversion chunk behaved predictably.**
 
 ## What it demonstrates
 

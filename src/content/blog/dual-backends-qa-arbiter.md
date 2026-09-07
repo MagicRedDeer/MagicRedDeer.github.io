@@ -11,7 +11,7 @@ At some point on Epic's Megascans → USD pipeline I'd been building, we needed 
 implementation. The first one drove a DCC application ([Houdini](https://www.sidefx.com)) to do
 the heavy lifting — great for artist-editable material networks and a validated production path,
 but a heavy dependency to carry everywhere. So I wrote a **second backend in pure Python**, with a
-vendored [USD](https://openusd.org) / MaterialX / [OpenImageIO](https://openimageio.readthedocs.io)
+vendored [USD](https://openusd.org) / MaterialX
 runtime, that produces the same output with no DCC installed.
 
 Writing the second backend was the easy part. The real question was the one that keeps you up at

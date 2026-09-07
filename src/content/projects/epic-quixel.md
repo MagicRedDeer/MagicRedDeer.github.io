@@ -1,11 +1,11 @@
 ---
 title: "Megascans → OpenUSD conversion & automation pipeline"
-description: "Core developer & architect of Epic's Megascans → OpenUSD pipeline: 20,637 assets converted (~92% of the actionable library), a dual backend kept honest by an independent ~110-rule QA gate, and corpus-scale batch tooling that drained the conversion backlog to zero."
+description: "Core developer & architect of Epic's Megascans → OpenUSD pipeline: 20,637 assets converted (~92% of the actionable library), a dual backend kept honest by an independent ~110-rule QA gate, and corpus-scale batch tooling that classified the library into 30+ asset classes."
 order: 1
 featured: true
 role: "Pipeline & Automation Engineer — Epic Games (Quixel)"
 period: "Apr 2025 – Jul 2026 · Remote"
-tech: ["OpenUSD", "MaterialX", "OpenPBR", "Houdini", "Python", "OpenImageIO", "AWS", "FastAPI", "FBX SDK"]
+tech: ["OpenUSD", "MaterialX", "OpenPBR", "OpenColorIO", "Houdini", "Python", "AWS", "FastAPI", "FBX SDK"]
 links:
   - { label: "Read the engineering series", url: "/blog" }
 ---
@@ -23,13 +23,14 @@ and more.
 
 - **20,637 assets converted** into OpenUSD with MaterialX / OpenPBR materials — about **92% of the
   actionable library** — across **six OpenPBR material types**, packaged per quality tier into
-  USDZ / MaterialX. The conversion backlog went from **338 to 0**.
+  USDZ / MaterialX. The corpus tooling classified the library into **30+ asset classes** by
+  structure and type, so each conversion chunk behaved predictably.
 
 ## Architecture highlights
 
 - **Dual backend behind one Python API.** A **Houdini** engine (Solaris/LOPs, five custom HDAs
   driven in `hython`) for a validated, artist-editable path — plus a **pure-Python** backend with a
-  vendored USD/MaterialX/OpenImageIO runtime that reproduces the same output with no DCC
+  vendored USD/MaterialX runtime that reproduces the same output with no DCC
   dependency. I drove the pure-Python backend to structural parity.
 - **QA as the arbiter of "correct."** An independent, automated QA gate — **~110 rules across
   seven layers**, with crash-resilient Maya visual QA — validates geometry, materials, USD
@@ -40,7 +41,7 @@ and more.
   auto-repair registry, so the pipeline stays upright on messy, decade-old source data.
 - **Corpus-scale operations tooling** that scans storage, classifies every asset, batches the
   convertibles, and runs unattended over the library — with corruption detection, an auditable
-  rejection pipeline, idempotent relaunch, and a 404-aware multi-pass gather that recovered
+  rejection pipeline, idempotent relaunch, and a rate-limit-aware multi-pass gather that recovered
   measured coverage from **78.7% to 98.9%** by reporting honestly.
 - **An in-house FBX→USD reader** (Autodesk FBX SDK, two-pass local-space reconstruction) that
   preserves per-node pivots a standard import would flatten.
