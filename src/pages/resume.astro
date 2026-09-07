@@ -4,21 +4,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Résumé — Talha Ahmed" description="Résumé of Talha Ahmed, Pipeline & Automation Engineer." wide>
   <div class="section-title" style="flex-wrap: wrap;">
     <h1 class="mt-0">Résumé</h1>
-    <div class="resume-tabs" role="tablist" aria-label="Résumé version">
-      <button class="resume-tab active" data-resume="/resume/Talha_Ahmed_Resume.pdf" aria-selected="true">Pipeline &amp; Tools</button>
-      <button class="resume-tab" data-resume="/resume/Talha_Ahmed_Resume_SoftwareEngineer.pdf" aria-selected="false">Software Engineer</button>
+    <div class="resume-tabs" role="group" aria-label="Document version">
+      <button type="button" class="resume-tab" data-resume="/resume/Talha_Ahmed_CV_2026.pdf" aria-pressed="false" aria-controls="resume-viewer">Detailed CV</button>
+      <button type="button" class="resume-tab active" data-resume="/resume/Talha_Ahmed_Resume.pdf" aria-pressed="true" aria-controls="resume-viewer">Pipeline &amp; Tools</button>
+      <button type="button" class="resume-tab" data-resume="/resume/Talha_Ahmed_Resume_SoftwareEngineer.pdf" aria-pressed="false" aria-controls="resume-viewer">Software Engineer</button>
     </div>
   </div>
   <p class="text-soft">Pipeline &amp; Automation Engineer · Technical Artist — 16+ years across animation, VFX, and games. Choose the version that best matches the role.</p>
 
   <div class="resume-actions">
-    <a id="download-resume" class="btn btn-primary" href="/resume/Talha_Ahmed_Resume.pdf" download>Download Résumé</a>
-    <a class="btn" href="/resume/Talha_Ahmed_CV_2026.pdf" download>Download Detailed CV</a>
+    <a id="download-resume" class="btn btn-primary" href="/resume/Talha_Ahmed_Resume.pdf" download>Download Pipeline &amp; Tools Resume</a>
   </div>
 
-  <object id="resume-viewer" class="pdf-frame" data="/resume/Talha_Ahmed_Resume.pdf#view=FitH" type="application/pdf" style="margin-top:1rem">
+  <object id="resume-viewer" class="pdf-frame" data="/resume/Talha_Ahmed_Resume.pdf#view=FitH" type="application/pdf" aria-label="Pipeline &amp; Tools preview" style="margin-top:1rem">
     <p>Your browser can't display PDFs inline.
-      <a id="fallback-resume" href="/resume/Talha_Ahmed_Resume.pdf">Download the résumé instead</a>.</p>
+      <a id="fallback-resume" href="/resume/Talha_Ahmed_Resume.pdf" download>Download the selected document instead</a>.</p>
   </object>
 
   <script is:inline>
@@ -33,12 +33,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           const pdf = tab.dataset.resume;
           tabs.forEach(function (t) {
             t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('aria-pressed', 'false');
           });
           tab.classList.add('active');
-          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('aria-pressed', 'true');
           viewer.setAttribute('data', pdf + '#view=FitH');
+          viewer.setAttribute('aria-label', tab.textContent.trim() + ' preview');
           downloadBtn.setAttribute('href', pdf);
+          const label = tab.textContent.trim();
+          downloadBtn.textContent = 'Download ' + label + (label === 'Detailed CV' ? '' : ' Resume');
           if (fallback) fallback.setAttribute('href', pdf);
         });
       });
