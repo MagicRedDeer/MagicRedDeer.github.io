@@ -1,6 +1,6 @@
 ---
 title: "Megascans → OpenUSD conversion & automation pipeline"
-description: "Core developer & architect of Epic's Megascans → OpenUSD pipeline: 20,637 assets converted (~92% of the actionable library), a dual backend kept honest by an independent ~110-rule QA gate, and corpus-scale batch tooling that classified the library into 30+ asset classes."
+description: "Core developer & architect of Epic's Megascans → OpenUSD pipeline: 20,637 assets converted (~92% of the complete library), a dual backend kept honest by an independent ~110-rule QA gate, and corpus-scale batch tooling that classified the library into 30+ asset classes."
 order: 1
 featured: true
 role: "Pipeline & Automation Engineer — Epic Games (Quixel)"
@@ -22,7 +22,7 @@ scene-graph organization, and maximum compatibility across Unreal Engine, Maya, 
 and more.
 
 - **20,637 assets converted** into OpenUSD with MaterialX / OpenPBR materials — about **92% of the
-  actionable library** — across **six OpenPBR material types**, packaged per quality tier into
+  complete library** — across **six OpenPBR material types**, packaged per quality tier into
   USDZ / MaterialX. The corpus tooling classified the library into **30+ asset classes** by
   structure and type, so each conversion chunk behaved predictably.
 
@@ -41,8 +41,9 @@ and more.
   auto-repair registry, so the pipeline stays upright on messy, decade-old source data.
 - **Corpus-scale operations tooling** that scans storage, classifies every asset, batches the
   convertibles, and runs unattended over the library — with corruption detection, an auditable
-  rejection pipeline, idempotent relaunch, and a rate-limit-aware multi-pass gather that recovered
-  measured coverage from **78.7% to 98.9%** by reporting honestly.
+  rejection pipeline, idempotent relaunch, and rate-limit-aware multi-pass data extraction from
+  various sources with transformation and caching that raised coverage to **98.9% of the mandated
+  assets list**.
 - **An in-house FBX→USD reader** (Autodesk FBX SDK, two-pass local-space reconstruction) that
   preserves per-node pivots a standard import would flatten.
 

@@ -34,6 +34,7 @@ See `DEPLOY.md` in the parent folder for the exact first-push commands.
 
 The five articles in the "Engineering an OpenUSD asset pipeline" series describe the **Epic Games
 (Quixel) Megascans → OpenUSD** work in full. **NDA cleared 2026-09-06**: product name and exact
-counts (20,637 assets, ~92%, six material types, ~110 QA rules, 30+ asset classes, 78.7% → 98.9%)
+counts (20,637 assets, ~92% of the complete library, six material types, ~110 QA rules, 30+ asset
+classes, 98.9% coverage of the mandated assets list)
 are fine to publish. Do not soften them back into generalized posture unless the user records a
 new NDA decision in `evidence-bank.md`.

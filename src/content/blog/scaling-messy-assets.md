@@ -76,14 +76,16 @@ fixes were unglamorous and decisive:
 
 ## The tracker that lied under load
 
-My favourite bug in this whole effort: coverage looked *terrible* on big runs, and it wasn't. The
-asset tracker we queried returns a **404 when it's rate-limiting** — and a naive fetch reads
-"404" as "this asset doesn't exist," so under load the pipeline cheerfully reported huge swathes
-of the library as missing. The data was fine; the *measurement* was wrong.
+My favourite bug in this whole effort: coverage cratered on big runs, and the assets were fine.
+The asset tracker we queried returns a **404 when it's rate-limiting** — and a naive fetch reads
+"404" as "this asset doesn't exist," so under load the pipeline cheerfully skipped huge swathes
+of the library. The data was fine; the *gathering* was broken.
 
-The fix was a **rate-limit-aware, multi-pass gather**: treat a 404-under-load as "ask again
-later," not "gone," and re-sweep the gaps. On one run that took apparent coverage from
-**78.7% to 98.9%** — not by converting anything new, but by **measuring honestly**.
+The fix was **rate-limit-aware, multi-pass data extraction from the various sources, with
+transformation and caching**: treat a 404-under-load as "ask again later," not "gone," transform
+and cache what comes back, and re-sweep the gaps. That raised coverage to **98.9% of the
+mandated assets list** — a large part of it not by converting anything new, but by **collecting
+what was actually there**.
 
 That bug crystallised the theme of the whole exercise. At scale, a wrong *number* is as dangerous
 as a wrong *asset* — and often harder to notice.
@@ -97,7 +99,7 @@ it says so out loud, because **silent truncation reads as "we covered everything
 didn't.**
 
 The numbers that shipped with it: **20,637 assets converted to OpenUSD with MaterialX/OpenPBR
-materials — about 92% of the actionable library, across six material types — with the corpus
+materials — about 92% of the complete library, across six material types — with the corpus
 classified into 30+ asset classes so each conversion chunk behaved predictably.**
 
 ## What it demonstrates
